@@ -60,6 +60,17 @@ Cria novos controllers
 adonis make:controller nomeController
 ```
 
+```
+adonis make:controller User --type http
+
+adonis make:model NomeModel -m -c
+
+
+
+
+
+
+```
 ## Alguns termos importantes
 
 #### express

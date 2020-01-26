@@ -18,4 +18,17 @@ const Route = use('Route')
 
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
-})
+}).middleware(["auth"]);
+
+//Route.post('/users', 'UserController.create');
+Route.post("/register", "AuthController.register");
+Route.post("/authenticate", "AuthController.authenticate");
+
+Route.resource("foragidos", "Sipe/ForagidoController").apiOnly().except("update");
+
+Route.group(() => {
+  Route.resource("denuncias", "AloSejus/DenunciaController").apiOnly().except("update");
+  Route.resource("assuntosdenuncia", "AloSejus/AssuntoDenunciaController").apiOnly().except("update");
+
+
+}).middleware(["auth"]);
